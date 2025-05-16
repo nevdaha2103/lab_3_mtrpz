@@ -1,16 +1,16 @@
 /*
 Copyright © 2022 NAME HERE <EMAIL ADDRESS>
-
 */
 package cmd
 
 import (
 	"fizzbuzz/lib"
 	"fmt"
-	"github.com/spf13/cobra"
 	"html/template"
 	"net/http"
 	"strconv"
+
+	"github.com/spf13/cobra"
 )
 
 // serveCmd represents the serve command
@@ -48,7 +48,6 @@ var serveCmd = &cobra.Command{
 			}
 
 			tmpl.Execute(w, context)
-			return
 		})
 		port, _ := cmd.Flags().GetInt("port")
 		fmt.Printf("Listening on http://0.0.0.0:%d\n", port)
