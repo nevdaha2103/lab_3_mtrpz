@@ -9,8 +9,8 @@ from spaceship.routers import api, health
 def make_app(settings: Settings) -> FastAPI:
     app = FastAPI(
         debug=settings.debug,
-        title=settings.app_title,
-        description=settings.app_description,
+        title=settings.app_title, # anothjer hello_fd
+        description=settings.app_description, #hello world
         version=settings.app_version,
     )
     app.state.settings = settings
@@ -19,7 +19,7 @@ def make_app(settings: Settings) -> FastAPI:
         app.mount('/static', StaticFiles(directory='build'), name='static')
 
     app.include_router(api.router, prefix='/api', tags=['api'])
-    app.include_router(health.router, prefix='/health', tags=['health'])
+    app.include_router(health.router, prefix='/health', tags=['health']) # sdf
 
     @app.get('/', include_in_schema=False, response_class=FileResponse)
     async def root() -> str:
